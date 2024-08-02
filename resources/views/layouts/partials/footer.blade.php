@@ -63,7 +63,7 @@
                                             </div>
                                             <div class="text">
                                                 <p>
-                                                    <a href="tel:+2341234567890">+234 123 456 7890</a>
+                                                    <a href="tel:+2347039394895">+234 703 939 4895</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -80,16 +80,16 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="inner">
-                                            <div class="icon mapmarker">
-                                                <span class="icon-pin-1"></span>
-                                            </div>
-                                            <div class="text">
-                                                <p>123 Address, Lagos State<br> Nigeria</p>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    {{--                                    <li>--}}
+                                    {{--                                        <div class="inner">--}}
+                                    {{--                                            <div class="icon mapmarker">--}}
+                                    {{--                                                <span class="icon-pin-1"></span>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                            <div class="text">--}}
+                                    {{--                                                <p>123 Address, Lagos State<br> Nigeria</p>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </li>--}}
                                 </ul>
                             </div>
                         </div>

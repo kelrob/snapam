@@ -9,10 +9,10 @@
                         <ul>
                             <li>
                                 <div class="icon">
-                                    <span class="icon-pin"></span>
+                                    {{--                                    <span class="icon-pin"></span>--}}
                                 </div>
                                 <div class="text">
-                                    <p>Testing Address 123 Lagos</p>
+                                    {{--                                    <p>Testing Address 123 Lagos</p>--}}
                                 </div>
                             </li>
                             <li>
@@ -111,7 +111,7 @@
                         </div>
                         <div class="phone">
                             <p>Have any questions?</p>
-                            <a href="tel:+2341234567890">+234 123 456 7890</a>
+                            <a href="tel:+2347039394895">+234 703 939 4895</a>
                         </div>
                     </div>
                 </div>
