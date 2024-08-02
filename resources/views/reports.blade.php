@@ -92,8 +92,8 @@
                                         @foreach($reports as $report)
                                             <tr>
                                                 <td>{{ $report->id }}</td>
-                                                <td><a target="_blank"
-                                                       href="{{ config('app.url') . '/' .$report->captured_image }}">View
+                                                <td><a download="report"
+                                                       href="{{$report->captured_image }}">Download
                                                         Image</a></td>
                                                 <td>{{ $report->waste_type }}</td>
                                                 <td>{{ $report->lga }}</td>

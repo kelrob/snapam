@@ -51,7 +51,7 @@ class ReportController extends Controller
 //            Storage::put($imagePath, base64_decode($imageBase64));
 
             // Add the image path to validated data
-            $validatedData['captured_image'] = 'storage/' . $fileName;
+            $validatedData['captured_image'] = $base64Image;
 
 
             // Store data
