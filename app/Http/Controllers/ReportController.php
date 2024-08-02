@@ -6,7 +6,6 @@ use App\Models\Report;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
 class ReportController extends Controller
@@ -27,17 +26,17 @@ class ReportController extends Controller
             ]);
 
             $base64Image = $request->input('captured_image');
-            $image_data = preg_replace('#^data:image/\w+;base64,#', '', $base64Image);
-            $image_type = explode('/', $image_data)[1];
-
-            // Decode the base64 string
-            $imageData = base64_decode($image_data);
-
-            // Generate a unique filename
-            $fileName = time() . '_' . uniqid() . '.' . $image_type;
-
-
-            Storage::disk('public')->put($fileName, $imageData);
+//            $image_data = preg_replace('#^data:image/\w+;base64,#', '', $base64Image);
+//            $image_type = explode('/', $image_data)[1];
+//
+//            // Decode the base64 string
+//            $imageData = base64_decode($image_data);
+//
+//            // Generate a unique filename
+//            $fileName = time() . '_' . uniqid() . '.' . $image_type;
+//
+//
+//            Storage::disk('public')->put($fileName, $imageData);
 
 //            // Extract the base64 image data (remove prefix)
 //            $imageData = explode(';base64,', $base64Image);

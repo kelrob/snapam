@@ -108,7 +108,7 @@
                     // Create a marker for each report
                     L.marker([report.latitude, report.longitude])
                         .addTo(markers)
-                        .bindPopup('<b>' + report.title + '</b><br>' + report.address);
+                        .bindPopup('<b>' + report.area + '</b><br>' + report.lga);
                 }
             });
 
