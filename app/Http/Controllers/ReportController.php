@@ -7,7 +7,6 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 class ReportController extends Controller
@@ -28,40 +27,27 @@ class ReportController extends Controller
             ]);
 
             $base64Image = $request->input('captured_image');
+            $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#', '', $base64Image));
 
-            // Validate and process the base64 image
-            if (!preg_match('/^data:image\/(\w+);base64,/', $base64Image, $type)) {
-                throw new Exception('Invalid base64 image data.');
-            }
+            // Generate a unique filename
+            $fileName = time() . '_' . uniqid() . '.jpg';
 
-            $imageData = explode(';base64,', $base64Image);
-            $imageExtension = $type[1]; // Extract image type (e.g., png, jpeg)
-            $imageBase64 = $imageData[1];
+            Storage::disk('public')->put($fileName, $imageData);
 
-            // Alternative method for detecting MIME type if fileinfo is not available
-            $tempFile = tempnam(sys_get_temp_dir(), 'img');
-            file_put_contents($tempFile, base64_decode($imageBase64));
-            $mimeType = mime_content_type($tempFile);
-            unlink($tempFile);
-
-            // Determine the file extension from MIME type
-            $mimeToExtension = [
-                'image/jpeg' => 'jpg',
-                'image/png' => 'png',
-                'image/gif' => 'gif',
-                // Add other MIME types as needed
-            ];
-
-            $imageExtension = $mimeToExtension[$mimeType] ?? 'jpg'; // Default to jpg if MIME type is unknown
+//            // Extract the base64 image data (remove prefix)
+//            $imageData = explode(';base64,', $base64Image);
+//            $imageExtension = explode('/', explode(':', $imageData[0])[1])[1];
+//            $imageBase64 = $imageData[1];
 
             // Save the image to the storage
-            $imageName = Str::random(10) . '-' . time() . '.' . $imageExtension;
-            $imagePath = 'public/images/' . $imageName;
-
-            Storage::disk('public')->put('images/' . $imageName, base64_decode($imageBase64));
+            // Generate a unique filename with timestamp
+//            $imageName = Str::random(10) . '-' . time() . '.' . $imageExtension;
+//            $imagePath = 'public/images/' . $imageName;
+//            Storage::put($imagePath, base64_decode($imageBase64));
 
             // Add the image path to validated data
-            $validatedData['captured_image'] = 'storage/images/' . $imageName;
+            $validatedData['captured_image'] = 'storage/' . $fileName;
+
 
             // Store data
             Report::create($validatedData);
