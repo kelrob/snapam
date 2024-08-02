@@ -27,10 +27,15 @@ class ReportController extends Controller
             ]);
 
             $base64Image = $request->input('captured_image');
-            $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#', '', $base64Image));
+            $image_data = preg_replace('#^data:image/\w+;base64,#', '', $base64Image);
+            $image_type = explode('/', $image_data)[1];
+
+            // Decode the base64 string
+            $imageData = base64_decode($image_data);
 
             // Generate a unique filename
-            $fileName = time() . '_' . uniqid() . '.jpg';
+            $fileName = time() . '_' . uniqid() . '.' . $image_type;
+
 
             Storage::disk('public')->put($fileName, $imageData);
 
