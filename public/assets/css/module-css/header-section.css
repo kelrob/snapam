@@ -1,6 +1,27 @@
 /*==============================================
-    Main Header Css        
+    Main Header Css
 ===============================================*/
+.image-container {
+    display: flex;
+    align-items: center; /* Optional: centers images vertically */
+}
+
+.image {
+    max-height: 20px; /* Ensures the images don't exceed this height */
+    margin-right: 10px; /* Optional: adds space between images */
+}
+
+.image2 {
+    max-height: 50px; /* Ensures the images don't exceed this height */
+    margin-right: 10px; /* Optional: adds space between images */
+}
+
+
+/* Optional: Remove margin from the last image */
+.image-container .image:last-child {
+    margin-right: 0;
+}
+
 .main-header {
     position: absolute;
     left: 0px;
@@ -70,44 +91,42 @@
     display: inline-block;
 }
 
-.sticky-header .main-menu .navigation>li {
+.sticky-header .main-menu .navigation > li {
     margin-right: 35px;
 }
 
-.sticky-header .main-menu .navigation>li>a {
+.sticky-header .main-menu .navigation > li > a {
     color: var(--thm-black);
     padding: 38px 0px 39px;
 }
 
-.sticky-header .main-menu .navigation>li:hover>a,
-.sticky-header .main-menu .navigation>li.current>a {
+.sticky-header .main-menu .navigation > li:hover > a,
+.sticky-header .main-menu .navigation > li.current > a {
     color: var(--thm-base);
 }
 
-.sticky-header .main-menu .navigation>li>a span:before {
+.sticky-header .main-menu .navigation > li > a span:before {
     display: none;
 }
 
-.sticky-header .main-menu .navigation>li>a:before {
+.sticky-header .main-menu .navigation > li > a:before {
     display: none;
 }
 
-.sticky-header .main-menu.style6 .navigation>li>a {
+.sticky-header .main-menu.style6 .navigation > li > a {
     color: var(--thm-black);
     padding: 38px 0px 38px;
 }
 
-.main-menu .navigation.scroll-nav>li:hover>a,
-.main-menu .navigation.scroll-nav>li.current>a {
+.main-menu .navigation.scroll-nav > li:hover > a,
+.main-menu .navigation.scroll-nav > li.current > a {
     color: var(--thm-base);
 }
-
 
 
 .header-style-one {
     position: relative;
 }
-
 
 
 .header-top {
@@ -209,8 +228,6 @@
 }
 
 
-
-
 .header {
     position: relative;
     display: block;
@@ -257,14 +274,14 @@
 }
 
 
-
 .header-social-link {
     position: relative;
     display: block;
     margin-left: 80px;
 }
 
-.header-social-link ul {}
+.header-social-link ul {
+}
 
 .header-social-link ul li {
     position: relative;
@@ -319,8 +336,8 @@
 }
 
 
-
-.main-menu.style1 {}
+.main-menu.style1 {
+}
 
 .main-menu {
     position: relative;
@@ -338,18 +355,18 @@
     display: block;
 }
 
-.main-menu .navigation>li {
+.main-menu .navigation > li {
     position: inherit;
     display: inline-block;
     float: left;
     margin-right: 40px;
 }
 
-.main-menu .navigation>li:last-child {
+.main-menu .navigation > li:last-child {
     margin-right: 0;
 }
 
-.main-menu .navigation>li>a {
+.main-menu .navigation > li > a {
     position: relative;
     display: flex;
     align-items: center;
@@ -365,7 +382,7 @@
     z-index: 1;
 }
 
-.main-menu .navigation>li>a span {
+.main-menu .navigation > li > a span {
     position: relative;
     display: block;
     line-height: 20px;
@@ -373,7 +390,7 @@
     z-index: 1;
 }
 
-.main-menu .navigation>li>a span:before {
+.main-menu .navigation > li > a span:before {
     content: "";
     position: absolute;
     top: 0;
@@ -388,19 +405,20 @@
     transition: all 0.4s cubic-bezier(0.62, 0.21, 0.45, 1.52);
 }
 
-.main-menu .navigation>li:hover>a span:before,
-.main-menu .navigation>li.current>a span:before {
+.main-menu .navigation > li:hover > a span:before,
+.main-menu .navigation > li.current > a span:before {
     transform: scaleY(1.0);
 }
 
-.main-menu .navigation>li:hover>a,
-.main-menu .navigation>li.current>a {
+.main-menu .navigation > li:hover > a,
+.main-menu .navigation > li.current > a {
     color: #ffffff;
 }
 
-.main-menu .navigation>li.dropdown>a {}
+.main-menu .navigation > li.dropdown > a {
+}
 
-.main-menu .navigation>li.dropdown>a:after {
+.main-menu .navigation > li.dropdown > a:after {
     position: absolute;
     right: 0px;
     font-family: Fontawesome;
@@ -413,14 +431,13 @@
     display: none;
 }
 
-.main-menu .navigation>li.dropdown:hover>a:after,
-.main-menu .navigation>li.dropdown.current>a:after {
+.main-menu .navigation > li.dropdown:hover > a:after,
+.main-menu .navigation > li.dropdown.current > a:after {
     transform: rotate(180deg);
 }
 
 
-
-.main-menu .navigation>li>ul {
+.main-menu .navigation > li > ul {
     position: absolute;
     top: 100%;
     left: inherit;
@@ -438,7 +455,7 @@
     z-index: 100;
 }
 
-.main-menu .navigation>li>ul:before {
+.main-menu .navigation > li > ul:before {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -450,7 +467,7 @@
     z-index: -1;
 }
 
-.main-menu .navigation>li>ul:after {
+.main-menu .navigation > li > ul:after {
     position: absolute;
     top: -3px;
     left: 0px;
@@ -462,7 +479,7 @@
     z-index: -1;
 }
 
-.main-menu .navigation>li.dropdown:hover>ul {
+.main-menu .navigation > li.dropdown:hover > ul {
     opacity: 1;
     visibility: visible;
     -moz-transform: translateY(0);
@@ -477,7 +494,7 @@
     -o-transition: all 300ms ease;
 }
 
-.main-menu .navigation>li>ul>li {
+.main-menu .navigation > li > ul > li {
     position: relative;
     display: block;
     padding: 0 0px;
@@ -490,60 +507,60 @@
     transition-delay: 0.1s;
 }
 
-.main-menu .navigation>li:hover>ul>li {
+.main-menu .navigation > li:hover > ul > li {
     opacity: 1;
     visibility: visible;
     -webkit-transform: translateY(0);
     transform: translateY(0);
 }
 
-.main-menu .navigation>li>ul>li:nth-child(2n+1) {
+.main-menu .navigation > li > ul > li:nth-child(2n+1) {
     -webkit-transition-delay: 0.1s;
     transition-delay: 0.1s;
 }
 
-.main-menu .navigation>li>ul>li:nth-child(2n+2) {
+.main-menu .navigation > li > ul > li:nth-child(2n+2) {
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
 }
 
-.main-menu .navigation>li>ul>li:nth-child(2n+3) {
+.main-menu .navigation > li > ul > li:nth-child(2n+3) {
     -webkit-transition-delay: 0.3s;
     transition-delay: 0.3s;
 }
 
-.main-menu .navigation>li>ul>li:nth-child(2n+4) {
+.main-menu .navigation > li > ul > li:nth-child(2n+4) {
     -webkit-transition-delay: 0.4s;
     transition-delay: 0.4s;
 }
 
-.main-menu .navigation>li>ul>li:nth-child(2n+5) {
+.main-menu .navigation > li > ul > li:nth-child(2n+5) {
     -webkit-transition-delay: 0.5s;
     transition-delay: 0.5s;
 }
 
-.main-menu .navigation>li>ul>li:nth-child(2n+6) {
+.main-menu .navigation > li > ul > li:nth-child(2n+6) {
     -webkit-transition-delay: 0.6s;
     transition-delay: 0.6s;
 }
 
-.main-menu .navigation>li>ul>li:nth-child(2n+7) {
+.main-menu .navigation > li > ul > li:nth-child(2n+7) {
     -webkit-transition-delay: 0.7s;
     transition-delay: 0.7s;
 }
 
-.main-menu .navigation>li>ul>li:nth-child(2n+8) {
+.main-menu .navigation > li > ul > li:nth-child(2n+8) {
     -webkit-transition-delay: 0.8s;
     transition-delay: 0.8s;
 }
 
-.main-menu .navigation>li>ul>li:nth-child(2n+9) {
+.main-menu .navigation > li > ul > li:nth-child(2n+9) {
     -webkit-transition-delay: 0.9s;
     transition-delay: 0.9s;
 }
 
 
-.main-menu .navigation>li>ul>li>a {
+.main-menu .navigation > li > ul > li > a {
     position: relative;
     display: block;
     border-bottom: 1px dashed rgba(255, 255, 255, .20);
@@ -562,11 +579,11 @@
     z-index: 1;
 }
 
-.main-menu .navigation>li>ul>li:last-child>a {
+.main-menu .navigation > li > ul > li:last-child > a {
     border: none;
 }
 
-.main-menu .navigation>li>ul>li>a:before {
+.main-menu .navigation > li > ul > li > a:before {
     content: "";
     position: absolute;
     top: -1px;
@@ -584,14 +601,14 @@
     z-index: -1;
 }
 
-.main-menu .navigation>li>ul>li:hover>a:before {
+.main-menu .navigation > li > ul > li:hover > a:before {
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
     -webkit-transform-origin: left center;
     transform-origin: left center;
 }
 
-.main-menu .navigation>li>ul>li>a:after {
+.main-menu .navigation > li > ul > li > a:after {
     content: "";
     position: absolute;
     top: 15px;
@@ -604,18 +621,19 @@
     transition: all 500ms ease;
 }
 
-.main-menu .navigation>li>ul>li:hover>a:after {
+.main-menu .navigation > li > ul > li:hover > a:after {
     transform: scaleY(1.0);
 }
 
-.main-menu .navigation>li>ul>li:hover>a {
+.main-menu .navigation > li > ul > li:hover > a {
     color: #ffffff;
     padding-left: 50px;
 }
 
-.main-menu .navigation>li>ul>li.dropdown {}
+.main-menu .navigation > li > ul > li.dropdown {
+}
 
-.main-menu .navigation>li>ul>li.dropdown:after {
+.main-menu .navigation > li > ul > li.dropdown:after {
     position: absolute;
     top: 0px;
     right: 30px;
@@ -632,14 +650,12 @@
     z-index: 5;
 }
 
-.main-menu .navigation>li>ul>li.dropdown:hover:after {
+.main-menu .navigation > li > ul > li.dropdown:hover:after {
     color: #ffffff;
 }
 
 
-
-
-.main-menu .navigation>li>ul>li>ul {
+.main-menu .navigation > li > ul > li > ul {
     position: absolute;
     top: 0%;
     left: 100%;
@@ -658,7 +674,7 @@
     z-index: 100;
 }
 
-.main-menu .navigation>li>ul>li>ul:before {
+.main-menu .navigation > li > ul > li > ul:before {
     position: absolute;
     top: 0px;
     left: 10px;
@@ -675,7 +691,7 @@
     z-index: -1;
 }
 
-.main-menu .navigation li>ul>li.dropdown:hover ul {
+.main-menu .navigation li > ul > li.dropdown:hover ul {
     opacity: 1;
     visibility: visible;
     -moz-transform: translateY(0);
@@ -690,7 +706,7 @@
     -o-transition: all 300ms ease;
 }
 
-.main-menu .navigation>li>ul>li>ul>li {
+.main-menu .navigation > li > ul > li > ul > li {
     position: relative;
     display: block;
     padding: 0px;
@@ -703,40 +719,40 @@
     transition-delay: 0.1s;
 }
 
-.main-menu .navigation>li>ul>li:hover>ul>li {
+.main-menu .navigation > li > ul > li:hover > ul > li {
     opacity: 1;
     visibility: visible;
     -webkit-transform: translateY(0);
     transform: translateY(0);
 }
 
-.main-menu .navigation>li>ul>li>ul>li:nth-child(2n+1) {
+.main-menu .navigation > li > ul > li > ul > li:nth-child(2n+1) {
     -webkit-transition-delay: 0.1s;
     transition-delay: 0.1s;
 }
 
-.main-menu .navigation>li>ul>li>ul>li:nth-child(2n+2) {
+.main-menu .navigation > li > ul > li > ul > li:nth-child(2n+2) {
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
 }
 
-.main-menu .navigation>li>ul>li>ul>li:nth-child(2n+3) {
+.main-menu .navigation > li > ul > li > ul > li:nth-child(2n+3) {
     -webkit-transition-delay: 0.3s;
     transition-delay: 0.3s;
 }
 
-.main-menu .navigation>li>ul>li>ul>li:nth-child(2n+4) {
+.main-menu .navigation > li > ul > li > ul > li:nth-child(2n+4) {
     -webkit-transition-delay: 0.4s;
     transition-delay: 0.4s;
 }
 
-.main-menu .navigation>li>ul>li>ul>li:nth-child(2n+5) {
+.main-menu .navigation > li > ul > li > ul > li:nth-child(2n+5) {
     -webkit-transition-delay: 0.5s;
     transition-delay: 0.5s;
 }
 
 
-.main-menu .navigation>li>ul>li>ul>li>a {
+.main-menu .navigation > li > ul > li > ul > li > a {
     position: relative;
     display: block;
     border-bottom: 1px dashed rgba(255, 255, 255, .20);
@@ -755,11 +771,11 @@
     z-index: 1;
 }
 
-.main-menu .navigation>li>ul>li>ul>li:last-child>a {
+.main-menu .navigation > li > ul > li > ul > li:last-child > a {
     border: none;
 }
 
-.main-menu .navigation>li>ul>li>ul>li>a:before {
+.main-menu .navigation > li > ul > li > ul > li > a:before {
     content: "";
     position: absolute;
     top: -1px;
@@ -777,14 +793,14 @@
     z-index: -1;
 }
 
-.main-menu .navigation>li>ul>li>ul>li:hover>a:before {
+.main-menu .navigation > li > ul > li > ul > li:hover > a:before {
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
     -webkit-transform-origin: left center;
     transform-origin: left center;
 }
 
-.main-menu .navigation>li>ul>li>ul>li>a:after {
+.main-menu .navigation > li > ul > li > ul > li > a:after {
     content: "";
     position: absolute;
     top: 15px;
@@ -797,20 +813,18 @@
     transition: all 500ms ease;
 }
 
-.main-menu .navigation>li>ul>li>ul>li:hover>a:after {
+.main-menu .navigation > li > ul > li > ul > li:hover > a:after {
     transform: scaleX(1.0);
 }
 
-.main-menu .navigation>li>ul>li>ul>li:hover>a {
+.main-menu .navigation > li > ul > li > ul > li:hover > a {
     color: #ffffff;
     padding-left: 50px;
 }
 
 
-
-
 /** Megamenu Style **/
-.main-menu .navigation>li>.megamenu {
+.main-menu .navigation > li > .megamenu {
     position: absolute;
     top: 100%;
     left: -50px;
@@ -830,7 +844,7 @@
     z-index: 100;
 }
 
-.main-menu .navigation>li>.megamenu:after {
+.main-menu .navigation > li > .megamenu:after {
     content: "";
     position: absolute;
     top: 40px;
@@ -841,17 +855,17 @@
     opacity: 0.10;
 }
 
-.main-menu .navigation>li>.megamenu .row {
+.main-menu .navigation > li > .megamenu .row {
     margin-right: 0px;
     margin-left: 0px;
 }
 
-.main-menu .navigation>li>.megamenu .row [class*=col-] {
+.main-menu .navigation > li > .megamenu .row [class*=col-] {
     padding-left: 0px;
     padding-right: 0px;
 }
 
-.main-menu .navigation>li>.megamenu:before {
+.main-menu .navigation > li > .megamenu:before {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -868,7 +882,7 @@
     z-index: -1;
 }
 
-.main-menu .navigation>li.dropdown:hover .megamenu {
+.main-menu .navigation > li.dropdown:hover .megamenu {
     opacity: 1;
     margin-top: -3px;
     visibility: visible;
@@ -884,7 +898,7 @@
     -o-transition: all 300ms ease;
 }
 
-.main-menu .navigation>li>.megamenu li {
+.main-menu .navigation > li > .megamenu li {
     position: relative;
     display: block;
     padding: 0 40px;
@@ -897,7 +911,7 @@
     transition-delay: 0.1s;
 }
 
-.main-menu .navigation>li:hover .megamenu li {
+.main-menu .navigation > li:hover .megamenu li {
     opacity: 1;
     visibility: visible;
     -webkit-transform: translateY(0);
@@ -949,7 +963,7 @@
 }
 ****/
 
-.main-menu .navigation>li>.megamenu li>a {
+.main-menu .navigation > li > .megamenu li > a {
     position: relative;
     display: block;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.20);
@@ -965,11 +979,11 @@
     font-family: var(--thm-font);
 }
 
-.main-menu .navigation>li>.megamenu li:last-child a {
+.main-menu .navigation > li > .megamenu li:last-child a {
     border: none;
 }
 
-.main-menu .navigation>li>.megamenu li>a:before {
+.main-menu .navigation > li > .megamenu li > a:before {
     content: "";
     position: absolute;
     top: -1px;
@@ -987,20 +1001,20 @@
     z-index: -1;
 }
 
-.main-menu .navigation>li>.megamenu li:hover>a:before {
+.main-menu .navigation > li > .megamenu li:hover > a:before {
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
     -webkit-transform-origin: left center;
     transform-origin: left center;
 }
 
-.main-menu .navigation>li>.megamenu li:hover>a {
+.main-menu .navigation > li > .megamenu li:hover > a {
     color: #ffffff;
     padding-left: 40px;
 }
 
 
-.main-menu .navigation>li>.megamenu li>a:after {
+.main-menu .navigation > li > .megamenu li > a:after {
     content: "";
     position: absolute;
     top: 15px;
@@ -1013,10 +1027,9 @@
     transition: all 500ms ease;
 }
 
-.main-menu .navigation>li>.megamenu li:hover>a:after {
+.main-menu .navigation > li > .megamenu li:hover > a:after {
     transform: scaleX(1.0);
 }
-
 
 
 .main-menu .navigation li.dropdown .megamenu li h4 {
@@ -1025,7 +1038,7 @@
     color: #fff;
 }
 
-.main-menu .navbar-collapse>ul li.dropdown .dropdown-btn {
+.main-menu .navbar-collapse > ul li.dropdown .dropdown-btn {
     position: absolute;
     right: 0px;
     top: 0;
@@ -1040,9 +1053,6 @@
     display: none;
     z-index: 5;
 }
-
-
-
 
 
 .header-right {
@@ -1137,9 +1147,8 @@
 }
 
 
-
 /*==============================================
-    Main Header Style2 Css        
+    Main Header Style2 Css
 ===============================================*/
 .header-style-two {
     position: relative;
@@ -1198,16 +1207,14 @@
 }
 
 
-
 .header-style2__middle {
     position: relative;
     display: block;
 }
 
-.header-style2__middle .main-menu .navigation>li>a {
+.header-style2__middle .main-menu .navigation > li > a {
     padding: 63px 0px 64px;
 }
-
 
 
 .header-style2__right {

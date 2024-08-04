@@ -9,14 +9,14 @@
                     <!--Start Single Partner Logo Box-->
                     <li class="">
                         <a href="#"><img src="https://www.snapam.ng/static/media/lagos.7487c757aa058f5d6fa9.png"
-                                         style="max-height: 50px"
+                                         style="max-height: 150px"
                                          alt="Ministry of Environment"></a>
                     </li>
                     <!--End Single Partner Logo Box-->
                     <!--Start Single Partner Logo Box-->
                     <li class="">
-                        <a href="#"><img src="https://www.snapam.ng/static/media/lawma.33101ab0dde182948885.png"
-                                         style="max-height: 50px;" alt="LAWMA"></a>
+                        <a href="#"><img src="{{asset('assets/images/brand/lg-government.jpg')}}"
+                                         style="max-height: 150px;" alt="Local Government Area"></a>
                     </li>
                     <!--End Single Partner Logo Box-->
                 </ul>

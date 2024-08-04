@@ -44,7 +44,7 @@
                             </h2>
                         </div>
                         <div class="btns-box">
-                            <a class="btn-one" href="#contact">
+                            <a class="btn-one" href="#services">
                                         <span class="txt">
                                             Report Here<i class="icon-refresh arrow"></i>
                                         </span>

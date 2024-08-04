@@ -17,7 +17,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-11">
                 @if($lga || $area)
                     <h3>Showing results of {{ $lga ?: $area }}</h3>
                 @endif
@@ -52,6 +52,18 @@
                             </select>
                             <input type="submit" class="btn btn-primary btn-sm">
                         </form>
+                        `
+                        <form action="" method="GET" class="mb-2">
+                            <label for="filter_status">Filter by Status</label>
+                            <select id="filter_status" required name="status" style="width: 30%;">
+                                <option value="">Please Select
+                                <option value="Completed">Completed</option>
+                                <option value="Assigned">Assigned</option>
+                                <option value="Clean up in Progress">In Progress</option>
+                            </select>
+                            <input type="submit" class="btn btn-primary btn-sm">
+                        </form>
+                        `
                         <form action="" method="GET" class="mb-2">
                             <label for="filter_lga">Search by Area</label>
                             <input type="search" placeholder="area" name="area">
@@ -75,34 +87,43 @@
                                     <table class="table table-striped table-hover">
                                         <thead>
                                         <tr>
-                                            <th>ID</th>
+                                            <th>S/N</th>
                                             <th>Image</th>
-                                            <th>Waste Type</th>
+                                            <th>Coordinates</th>
+                                            <th>Infraction Type</th>
                                             <th>LGA</th>
                                             <th>Area</th>
-                                            <th>Longitude</th>
-                                            <th>Latitude</th>
                                             <th>Phone</th>
+                                            <th>Treated By</th>
+                                            <th>Date Treated</th>
+                                            <th>Date Reported</th>
                                             <th>Status</th>
-                                            <th>Created At</th>
                                             <th>Actions</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         @foreach($reports as $report)
                                             <tr>
-                                                <td>{{ $report->id }}</td>
-                                                <td><a download="report"
-                                                       href="{{$report->captured_image }}">Download
-                                                        Image</a></td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td><img src="{{ $report->captured_image }}"
+                                                         class="img-fluid"
+                                                         style="max-height: 50px; border-radius: 10px;" alt="">
+                                                </td>
+                                                <td>
+                                                    {{$report->longitude . ', ' . $report->latitude}}
+                                                </td>
                                                 <td>{{ $report->waste_type }}</td>
                                                 <td>{{ $report->lga }}</td>
                                                 <td>{{ $report->area }}</td>
-                                                <td>{{ $report->longitude }}</td>
-                                                <td>{{ $report->latitude }}</td>
                                                 <td>{{ $report->phone_number }}</td>
+                                                <td>{{ $report->treatedBy->name ?? '' }}</td>
+                                                <td>
+                                                    @if($report->status == 'Completed')
+                                                        {!! htmlspecialchars_decode(date('j<\s\up>S</\s\up> F Y', strtotime($report->updated_at))) !!}
+                                                    @endif
+                                                </td>
+                                                <td>{!! htmlspecialchars_decode(date('j<\s\up>S</\s\up> F Y', strtotime($report->created_at))) !!}</td>
                                                 <td>{{ $report->status }}</td>
-                                                <td>{{ $report->created_at->format('Y-m-d H:i') }}</td>
                                                 <td>
                                                     <div class="dropdown">
                                                         <button class="btn btn-secondary btn-sm dropdown-toggle"

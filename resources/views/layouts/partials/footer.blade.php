@@ -34,7 +34,8 @@
                     <!--Start single footer widget-->
                     <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 text-center">
                         <p>
-                            <img src="https://www.snapam.ng/static/media/lawma.33101ab0dde182948885.png" alt=""/>
+                            <img src="{{asset('assets/images/brand/lg-government.jpg')}}"
+                                 style="max-height: 150px;" alt="Local Government Area">
                         </p>
                         <p>
                             <img src="https://www.snapam.ng/static/media/lagos.7487c757aa058f5d6fa9.png" alt="">

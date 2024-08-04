@@ -21,7 +21,7 @@
             </div>
             <div class="col-xl-3 col-lg-12">
                 <div class="slogan-btn-box">
-                    <a class="btn-one" href="#contact">
+                    <a class="btn-one" href="#services">
                                 <span class="txt">
                                     Report Here<i class="icon-refresh arrow"></i>
                                 </span>

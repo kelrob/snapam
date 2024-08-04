@@ -32,6 +32,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function reports()
+    {
+        return $this->hasMany(Report::class, 'treated_by', 'id');
+    }
+
     /**
      * Get the attributes that should be cast.
      *

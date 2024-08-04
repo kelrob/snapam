@@ -11,8 +11,16 @@
         <div class="row justify-content-center">
 
             <div class="col-md-10">
-                @if($lga || $area)
-                    <h3>Showing results of {{ $lga ?: $area }}</h3>
+                @if($lga || $area || $status)
+                    <h3>Showing results of
+                        @if($lga)
+                            {{ $lga }}
+                        @elseif($area)
+                            {{ $area }}
+                        @elseif($status)
+                            {{ $status }}
+                        @endif
+                    </h3>
                 @endif
                 <div class="row">
                     <div class="col-lg-6">
@@ -42,6 +50,16 @@
                                 <option value="Oshodi-Isolo">Oshodi-Isolo</option>
                                 <option value="Somolu">Somolu</option>
                                 <option value="Surulere">Surulere</option>
+                            </select>
+                            <input type="submit" class="btn btn-primary btn-sm">
+                        </form>
+                        <form action="" method="GET" class="mb-2">
+                            <label for="filter_status">Filter by Status</label>
+                            <select id="filter_status" required name="status" style="width: 30%;">
+                                <option value="">Please Select
+                                <option value="Completed">Completed</option>
+                                <option value="Assigned">Assigned</option>
+                                <option value="Clean up in Progress">In Progress</option>
                             </select>
                             <input type="submit" class="btn btn-primary btn-sm">
                         </form>
@@ -105,10 +123,24 @@
             reports.forEach(function (report) {
                 // Ensure latitude and longitude are valid
                 if (report.latitude && report.longitude) {
+                    // Create HTML content for the popup
+                    var popupContent = `
+                <div style="width: 200px;">
+                    <img src="${report.captured_image}" alt="Report Image" style="width: 100%; height: auto; border-radius: 5px;"/>
+                    <p><strong>Area:</strong> ${report.area}</p>
+                    <p><strong>LGA:</strong> ${report.lga}</p>
+                    <hr>
+                    <p>
+                        <strong>Status:</strong> ${report.status || 'Not Attended'}
+                        <a href="/home/report/${report.id}">View Details</a>
+                    </p>
+                </div>
+            `;
+
                     // Create a marker for each report
                     L.marker([report.latitude, report.longitude])
                         .addTo(markers)
-                        .bindPopup('<b>' + report.area + '</b><br>' + report.lga);
+                        .bindPopup(popupContent);
                 }
             });
 
@@ -117,6 +149,7 @@
                 map.fitBounds(markers.getBounds());
             }
         });
+
 
     </script>
 

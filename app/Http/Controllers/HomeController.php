@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -27,37 +28,42 @@ class HomeController extends Controller
     {
         $lga = $request->query('lga');
         $area = $request->query('area');
+        $status = $request->query('status');
 
         if ($area) {
-            $reports = Report::where('area', $area)->get();
+            $reports = Report::where('area', $area)->with('treatedBy')->get();
         } else if ($lga && $lga != 'All') {
-            $reports = Report::where('lga', $lga)->get();
+            $reports = Report::where('lga', $lga)->with('treatedBy')->get();
+        } else if ($status) {
+            $reports = Report::where('status', $status)->with('treatedBy')->get();
         } else {
             // Fetch reports in descending order
-            $reports = Report::orderBy('created_at', 'desc')->get();
+            $reports = Report::orderBy('created_at', 'desc')->with('treatedBy')->get();
         }
 
         // Pass reports to the home view using compact
-        return view('home', compact('reports', 'lga', 'area'));
+        return view('home', compact('reports', 'lga', 'area', 'status'));
     }
 
     public function reports(Request $request): Renderable
     {
         $lga = $request->query('lga');
         $area = $request->query('area');
+        $status = $request->query('status');
 
         if ($area) {
-            $reports = Report::where('area', $area)->paginate(10);
+            $reports = Report::where('area', $area)->with('treatedBy')->paginate(10);
         } else if ($lga && $lga != 'All') {
-            $reports = Report::where('lga', $lga)->paginate(10);
+            $reports = Report::where('lga', $lga)->with('treatedBy')->paginate(10);
+        } else if ($status) {
+            $reports = Report::where('status', $status)->with('treatedBy')->paginate(10);
         } else {
             // Fetch reports in descending order
-            $reports = Report::orderBy('created_at', 'desc')->paginate(10);
+            $reports = Report::orderBy('created_at', 'desc')->with('treatedBy')->paginate(10);
         }
 
-
         // Pass reports to the home view using compact
-        return view('reports', compact('reports', 'lga', 'area'));
+        return view('reports', compact('reports', 'lga', 'area', 'status'));
     }
 
     public function updateAction(Request $request, Report $report)
@@ -78,9 +84,28 @@ class HomeController extends Controller
                 $report->status = 'Completed';
                 break;
         }
-
+        $report->treated_by = Auth::id();
         $report->save();
 
         return redirect()->back()->with('success', 'Report status updated successfully.');
+    }
+
+    public function report($report)
+    {
+        $reportInfo = Report::find($report);
+
+        // Check if the report exists
+        if (!$reportInfo) {
+            abort(404, 'Report not found');
+        }
+
+        // Pass the report details to the view
+        return view('report', compact('reportInfo'));
+    }
+
+    public function map($id)
+    {
+        $report = Report::find($id);
+        return view('map', compact('report'));
     }
 }

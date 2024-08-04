@@ -45,7 +45,7 @@
 
                 <div class="header-top__right">
                     <div class="header-button-style1">
-                        <a class="btn-one" href="#contact">
+                        <a class="btn-one" href="#services">
                                     <span class="txt">
                                         Report an Infraction<i class="icon-refresh arrow"></i>
                                     </span>
@@ -68,9 +68,11 @@
                     <div class="main-logo-box">
                         <a href="#">
 
-                            <h3><img style="max-height: 20px;"
-                                     src="https://www.snapam.ng/static/media/logo.c2cba24a65779cd35cec.jpeg" alt="">
-                                SNAPAM.NG</h3>
+                            <div class="image-container">
+                                <img src="https://www.snapam.ng/static/media/logo.c2cba24a65779cd35cec.jpeg" alt="Logo"
+                                     class="image">
+                                <img src="{{ asset('/assets/images/brand/snapam.jpg') }}" alt="Brand" class="image2">
+                            </div>
                         </a>
                     </div>
                 </div>
