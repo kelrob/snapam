@@ -29,6 +29,7 @@ class HomeController extends Controller
         $lga = $request->query('lga');
         $area = $request->query('area');
         $status = $request->query('status');
+        $waste_type = $request->query('waste_type');
 
         if ($area) {
             $reports = Report::where('area', $area)->with('treatedBy')->get();
@@ -36,13 +37,15 @@ class HomeController extends Controller
             $reports = Report::where('lga', $lga)->with('treatedBy')->get();
         } else if ($status) {
             $reports = Report::where('status', $status)->with('treatedBy')->get();
+        } else if ($waste_type) {
+            $reports = Report::where('waste_type', $waste_type)->with('treatedBy')->get();
         } else {
             // Fetch reports in descending order
             $reports = Report::orderBy('created_at', 'desc')->with('treatedBy')->get();
         }
 
         // Pass reports to the home view using compact
-        return view('home', compact('reports', 'lga', 'area', 'status'));
+        return view('home', compact('reports', 'lga', 'area', 'status', 'waste_type'));
     }
 
     public function reports(Request $request): Renderable
@@ -50,6 +53,7 @@ class HomeController extends Controller
         $lga = $request->query('lga');
         $area = $request->query('area');
         $status = $request->query('status');
+        $waste_type = $request->query('waste_type');
 
         if ($area) {
             $reports = Report::where('area', $area)->with('treatedBy')->paginate(10);
@@ -57,13 +61,15 @@ class HomeController extends Controller
             $reports = Report::where('lga', $lga)->with('treatedBy')->paginate(10);
         } else if ($status) {
             $reports = Report::where('status', $status)->with('treatedBy')->paginate(10);
+        } else if ($waste_type) {
+            $reports = Report::where('waste_type', $waste_type)->with('treatedBy')->paginate(10);
         } else {
             // Fetch reports in descending order
             $reports = Report::orderBy('created_at', 'desc')->with('treatedBy')->paginate(10);
         }
 
         // Pass reports to the home view using compact
-        return view('reports', compact('reports', 'lga', 'area', 'status'));
+        return view('reports', compact('reports', 'lga', 'area', 'status', 'waste_type'));
     }
 
     public function updateAction(Request $request, Report $report)

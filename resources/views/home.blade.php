@@ -11,7 +11,7 @@
         <div class="row justify-content-center">
 
             <div class="col-md-10">
-                @if($lga || $area || $status)
+                @if($lga || $area || $status || $waste_type)
                     <h3>Showing results of
                         @if($lga)
                             {{ $lga }}
@@ -19,6 +19,8 @@
                             {{ $area }}
                         @elseif($status)
                             {{ $status }}
+                        @elseif($waste_type)
+                            {{$waste_type}}
                         @endif
                     </h3>
                 @endif
@@ -60,6 +62,18 @@
                                 <option value="Completed">Completed</option>
                                 <option value="Assigned">Assigned</option>
                                 <option value="Clean up in Progress">In Progress</option>
+                            </select>
+                            <input type="submit" class="btn btn-primary btn-sm">
+                        </form>
+                        <form action="" method="GET" class="mb-2">
+                            <label for="filter_status">Filter by Infraction</label>
+                            <select id="filter_status" required name="waste_type" style="width: 50%;">
+                                <option value="">Please Select Type of Waste</option>
+                                <option value="Hazardous Waste">Hazardous Waste</option>
+                                <option value="Construction Waste">Construction Waste</option>
+                                <option value="Solid Waste">Solid Waste</option>
+                                <option value="Sewage Waste">Sewage Waste</option>
+                                <option value="Street Liter">Street Liter</option>
                             </select>
                             <input type="submit" class="btn btn-primary btn-sm">
                         </form>
