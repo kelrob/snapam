@@ -52,6 +52,8 @@
     <link href="{{ asset('assets/css/color/theme-color.css') }}" id="jssDefault" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+
+    <link rel="favicon" href="{{ asset('assets/images/brand/snapam.jpg') }}" type="image/x-icon">
 @endsection
 
 @section('head_scripts')
