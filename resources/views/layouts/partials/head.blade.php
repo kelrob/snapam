@@ -53,7 +53,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 
-    <link rel="favicon" href="{{ asset('assets/images/brand/snapam.jpg') }}" type="image/x-icon">
+    {{--    <link rel="favicon" href="{{ asset('assets/images/brand/snapam.jpg') }}" type="image/x-icon">--}}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/images/favicon/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/images/favicon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon/favicon-16x16.png')}}">
 @endsection
 
 @section('head_scripts')
